@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="db962eb401bb4071b2a7af0ede713230" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="dbam17ahnModel.BrandTable" Width="1.5" PointX="7.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.Comment" Width="1.5" PointX="15.375" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.Description" Width="1.5" PointX="15.375" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.Gender" Width="1.5" PointX="0.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.Image" Width="1.5" PointX="1" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.Product" Width="1.5" PointX="11.625" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.ProductType" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.Rating" Width="1.5" PointX="13.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.Tag" Width="1.5" PointX="5.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.TagsJunction" Width="1.5" PointX="9.5" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.UserLevel" Width="1.5" PointX="0.875" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.User" Width="1.5" PointX="4.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbam17ahnModel.UserStatu" Width="1.5" PointX="2.625" PointY="16" IsExpanded="true" />
+        <AssociationConnector Association="dbam17ahnModel.FK_BrandTable_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Product_BrandTable" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Comments_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Comments_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Description_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Description_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Product_Description" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Gender_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Users_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Image_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Product_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Product_ProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Product_Rating" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Product_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_TagsJunction_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_ProductType_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Rating_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Tags_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_TagsJunction_Tags" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_TagsJunction_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_UserLevel_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Users_UserLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_Users_UserStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="dbam17ahnModel.FK_UserStatus_Users" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

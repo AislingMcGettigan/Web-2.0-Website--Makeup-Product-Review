@@ -1,0 +1,1318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbam17ahnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="BrandTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BrandName" Type="varchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="CommentTitle" Type="varchar" MaxLength="100" />
+          <Property Name="Comment" Type="text" />
+          <Property Name="AddedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Description">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="text" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImagePath" Type="varchar" MaxLength="200" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="BrandId" Type="int" />
+          <Property Name="DescId" Type="int" />
+          <Property Name="ProductTypeId" Type="int" />
+          <Property Name="RatingId" Type="int" />
+          <Property Name="Ingredients" Type="text" />
+          <Property Name="ImageId" Type="int" />
+          <Property Name="AddedById" Type="int" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductType" Type="varchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Rating" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tag" Type="varchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="TagsJunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="TagId" Type="int" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="UserLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Level" Type="varchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="DateOfBirth" Type="datetime" />
+          <Property Name="Address1" Type="varchar" MaxLength="200" />
+          <Property Name="Address2" Type="varchar" MaxLength="200" />
+          <Property Name="County" Type="varchar" MaxLength="50" />
+          <Property Name="Postcode" Type="varchar" MaxLength="10" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="UserLevel" Type="int" />
+          <Property Name="Active" Type="int" />
+        </EntityType>
+        <EntityType Name="UserStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="AddedDate" Type="datetime" />
+          <Property Name="AddedBy" Type="int" />
+        </EntityType>
+        <Association Name="FK_BrandTable_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="BrandTable" Type="Self.BrandTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandTable">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Description_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Description" Type="Self.Description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Description">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Description_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Description" Type="Self.Description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Description">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gender_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gender">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_BrandTable">
+          <End Role="BrandTable" Type="Self.BrandTable" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Description">
+          <End Role="Description" Type="Self.Description" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Description">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="DescId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Rating">
+          <End Role="Rating" Type="Self.Rating" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rating">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="RatingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="AddedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductType_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tags_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Tags" Type="Self.Tags" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TagsJunction_Products">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="TagsJunction" Type="Self.TagsJunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TagsJunction">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TagsJunction_Tags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="0..1" />
+          <End Role="TagsJunction" Type="Self.TagsJunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TagsJunction">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TagsJunction_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="TagsJunction" Type="Self.TagsJunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TagsJunction">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLevel_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserLevel" Type="Self.UserLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLevel">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserLevel">
+          <End Role="UserLevel" Type="Self.UserLevel" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserStatus">
+          <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Active" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserStatus_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="UserStatus" Type="Self.UserStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserStatus">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbam17ahnModelStoreContainer">
+          <EntitySet Name="BrandTable" EntityType="Self.BrandTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Description" EntityType="Self.Description" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagsJunction" EntityType="Self.TagsJunction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLevel" EntityType="Self.UserLevel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BrandTable_Users" Association="Self.FK_BrandTable_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BrandTable" EntitySet="BrandTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Product" Association="Self.FK_Comments_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Description_Product" Association="Self.FK_Description_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="Description" EntitySet="Description" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Description_Users" Association="Self.FK_Description_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Description" EntitySet="Description" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gender_Users" Association="Self.FK_Gender_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Gender" EntitySet="Gender" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_Users" Association="Self.FK_Image_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_BrandTable" Association="Self.FK_Product_BrandTable">
+            <End Role="BrandTable" EntitySet="BrandTable" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Description" Association="Self.FK_Product_Description">
+            <End Role="Description" EntitySet="Description" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Image" Association="Self.FK_Product_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Rating" Association="Self.FK_Product_Rating">
+            <End Role="Rating" EntitySet="Rating" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Users" Association="Self.FK_Product_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductType_Users" Association="Self.FK_ProductType_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProductType" EntitySet="ProductType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_Users" Association="Self.FK_Rating_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Rating" EntitySet="Rating" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tags_Users" Association="Self.FK_Tags_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TagsJunction_Products" Association="Self.FK_TagsJunction_Products">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="TagsJunction" EntitySet="TagsJunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TagsJunction_Tags" Association="Self.FK_TagsJunction_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="TagsJunction" EntitySet="TagsJunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TagsJunction_Users" Association="Self.FK_TagsJunction_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TagsJunction" EntitySet="TagsJunction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLevel_Users" Association="Self.FK_UserLevel_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserLevel" EntitySet="UserLevel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Gender" Association="Self.FK_Users_Gender">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserLevel" Association="Self.FK_Users_UserLevel">
+            <End Role="UserLevel" EntitySet="UserLevel" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserStatus" Association="Self.FK_Users_UserStatus">
+            <End Role="UserStatus" EntitySet="UserStatus" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserStatus_Users" Association="Self.FK_UserStatus_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserStatus" EntitySet="UserStatus" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbam17ahnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BrandTable">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BrandName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_BrandTable_Users" FromRole="BrandTable" ToRole="Users" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_BrandTable" FromRole="BrandTable" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="CommentTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Comment1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Comments_Product" FromRole="Comments" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Comments_Users" FromRole="Comments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Description">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Description_Product" FromRole="Description" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Description_Users" FromRole="Description" ToRole="Users" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Description" FromRole="Description" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Gender1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Gender_Users" FromRole="Gender" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_Gender" FromRole="Gender" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImagePath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Image_Users" FromRole="Image" ToRole="Users" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Image" FromRole="Image" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="DescId" Type="Int32" />
+          <Property Name="ProductTypeId" Type="Int32" />
+          <Property Name="RatingId" Type="Int32" />
+          <Property Name="Ingredients" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ImageId" Type="Int32" />
+          <Property Name="AddedById" Type="Int32" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BrandTable" Relationship="Self.FK_Product_BrandTable" FromRole="Product" ToRole="BrandTable" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Product" FromRole="Product" ToRole="Comments" />
+          <NavigationProperty Name="Descriptions" Relationship="Self.FK_Description_Product" FromRole="Product" ToRole="Description" />
+          <NavigationProperty Name="Description" Relationship="Self.FK_Product_Description" FromRole="Product" ToRole="Description" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_Product_Image" FromRole="Product" ToRole="Image" />
+          <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
+          <NavigationProperty Name="Rating" Relationship="Self.FK_Product_Rating" FromRole="Product" ToRole="Rating" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Product_Users" FromRole="Product" ToRole="Users" />
+          <NavigationProperty Name="TagsJunctions" Relationship="Self.FK_TagsJunction_Products" FromRole="Product" ToRole="TagsJunction" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductType" FromRole="ProductType" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ProductType_Users" FromRole="ProductType" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Rating1" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Rating" FromRole="Rating" ToRole="Product" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Rating_Users" FromRole="Rating" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Tag">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tag1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Tags_Users" FromRole="Tags" ToRole="Users" />
+          <NavigationProperty Name="TagsJunctions" Relationship="Self.FK_TagsJunction_Tags" FromRole="Tags" ToRole="TagsJunction" />
+        </EntityType>
+        <EntityType Name="TagsJunction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="TagId" Type="Int32" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_TagsJunction_Products" FromRole="TagsJunction" ToRole="Product" />
+          <NavigationProperty Name="Tag" Relationship="Self.FK_TagsJunction_Tags" FromRole="TagsJunction" ToRole="Tags" />
+          <NavigationProperty Name="User" Relationship="Self.FK_TagsJunction_Users" FromRole="TagsJunction" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="UserLevel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Level" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserLevel_Users" FromRole="UserLevel" ToRole="Users" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserLevel" FromRole="UserLevel" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="Address1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address2" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="County" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Postcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="UserLevel" Type="Int32" />
+          <Property Name="Active" Type="Int32" />
+          <NavigationProperty Name="BrandTables" Relationship="Self.FK_BrandTable_Users" FromRole="Users" ToRole="BrandTable" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Users" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="Descriptions" Relationship="Self.FK_Description_Users" FromRole="Users" ToRole="Description" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK_Gender_Users" FromRole="Users" ToRole="Gender" />
+          <NavigationProperty Name="Gender1" Relationship="Self.FK_Users_Gender" FromRole="Users" ToRole="Gender" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_Image_Users" FromRole="Users" ToRole="Image" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Users" FromRole="Users" ToRole="Product" />
+          <NavigationProperty Name="ProductTypes" Relationship="Self.FK_ProductType_Users" FromRole="Users" ToRole="ProductType" />
+          <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Users" FromRole="Users" ToRole="Rating" />
+          <NavigationProperty Name="Tags" Relationship="Self.FK_Tags_Users" FromRole="Users" ToRole="Tags" />
+          <NavigationProperty Name="TagsJunctions" Relationship="Self.FK_TagsJunction_Users" FromRole="Users" ToRole="TagsJunction" />
+          <NavigationProperty Name="UserLevels" Relationship="Self.FK_UserLevel_Users" FromRole="Users" ToRole="UserLevel" />
+          <NavigationProperty Name="UserLevel1" Relationship="Self.FK_Users_UserLevel" FromRole="Users" ToRole="UserLevel" />
+          <NavigationProperty Name="UserStatu" Relationship="Self.FK_Users_UserStatus" FromRole="Users" ToRole="UserStatus" />
+          <NavigationProperty Name="UserStatus" Relationship="Self.FK_UserStatus_Users" FromRole="Users" ToRole="UserStatus" />
+        </EntityType>
+        <EntityType Name="UserStatu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AddedDate" Type="DateTime" Precision="3" />
+          <Property Name="AddedBy" Type="Int32" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserStatus" FromRole="UserStatus" ToRole="Users" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserStatus_Users" FromRole="UserStatus" ToRole="Users" />
+        </EntityType>
+        <Association Name="FK_BrandTable_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="BrandTable" Type="Self.BrandTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandTable">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_BrandTable">
+          <End Role="BrandTable" Type="Self.BrandTable" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandTable">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Description_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Description" Type="Self.Description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Description">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Description_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Description" Type="Self.Description" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Description">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Description">
+          <End Role="Description" Type="Self.Description" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Description">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="DescId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gender_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gender">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Gender">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Gender" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Image_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Rating">
+          <End Role="Rating" Type="Self.Rating" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rating">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="RatingId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="AddedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TagsJunction_Products">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="TagsJunction" Type="Self.TagsJunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TagsJunction">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductType_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rating_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rating">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tags_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="Tags" Type="Self.Tag" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Tags">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TagsJunction_Tags">
+          <End Role="Tags" Type="Self.Tag" Multiplicity="0..1" />
+          <End Role="TagsJunction" Type="Self.TagsJunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TagsJunction">
+              <PropertyRef Name="TagId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TagsJunction_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="TagsJunction" Type="Self.TagsJunction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TagsJunction">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserLevel_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserLevel" Type="Self.UserLevel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserLevel">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserLevel">
+          <End Role="UserLevel" Type="Self.UserLevel" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserLevel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="UserLevel" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserStatus">
+          <End Role="UserStatus" Type="Self.UserStatu" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="Active" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserStatus_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+          <End Role="UserStatus" Type="Self.UserStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserStatus">
+              <PropertyRef Name="AddedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbam17ahnEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrandTables" EntityType="Self.BrandTable" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Descriptions" EntityType="Self.Description" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductTypes" EntityType="Self.ProductType" />
+          <EntitySet Name="Ratings" EntityType="Self.Rating" />
+          <EntitySet Name="Tags" EntityType="Self.Tag" />
+          <EntitySet Name="TagsJunctions" EntityType="Self.TagsJunction" />
+          <EntitySet Name="UserLevels" EntityType="Self.UserLevel" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserStatus" EntityType="Self.UserStatu" />
+          <AssociationSet Name="FK_BrandTable_Users" Association="Self.FK_BrandTable_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="BrandTable" EntitySet="BrandTables" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_BrandTable" Association="Self.FK_Product_BrandTable">
+            <End Role="BrandTable" EntitySet="BrandTables" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Product" Association="Self.FK_Comments_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Description_Product" Association="Self.FK_Description_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Description" EntitySet="Descriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Description_Users" Association="Self.FK_Description_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Description" EntitySet="Descriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Description" Association="Self.FK_Product_Description">
+            <End Role="Description" EntitySet="Descriptions" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gender_Users" Association="Self.FK_Gender_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Gender" EntitySet="Genders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Gender" Association="Self.FK_Users_Gender">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Image_Users" Association="Self.FK_Image_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Image" Association="Self.FK_Product_Image">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductTypes" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Rating" Association="Self.FK_Product_Rating">
+            <End Role="Rating" EntitySet="Ratings" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_Users" Association="Self.FK_Product_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TagsJunction_Products" Association="Self.FK_TagsJunction_Products">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="TagsJunction" EntitySet="TagsJunctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductType_Users" Association="Self.FK_ProductType_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="ProductType" EntitySet="ProductTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rating_Users" Association="Self.FK_Rating_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Rating" EntitySet="Ratings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tags_Users" Association="Self.FK_Tags_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Tags" EntitySet="Tags" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TagsJunction_Tags" Association="Self.FK_TagsJunction_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="TagsJunction" EntitySet="TagsJunctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TagsJunction_Users" Association="Self.FK_TagsJunction_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="TagsJunction" EntitySet="TagsJunctions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserLevel_Users" Association="Self.FK_UserLevel_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserLevel" EntitySet="UserLevels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserLevel" Association="Self.FK_Users_UserLevel">
+            <End Role="UserLevel" EntitySet="UserLevels" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserStatus" Association="Self.FK_Users_UserStatus">
+            <End Role="UserStatus" EntitySet="UserStatus" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserStatus_Users" Association="Self.FK_UserStatus_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="UserStatus" EntitySet="UserStatus" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbam17ahnModelStoreContainer" CdmEntityContainer="dbam17ahnEntities">
+          <EntitySetMapping Name="BrandTables">
+            <EntityTypeMapping TypeName="dbam17ahnModel.BrandTable">
+              <MappingFragment StoreEntitySet="BrandTable">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="dbam17ahnModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CommentTitle" ColumnName="CommentTitle" />
+                <ScalarProperty Name="Comment1" ColumnName="Comment" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Descriptions">
+            <EntityTypeMapping TypeName="dbam17ahnModel.Description">
+              <MappingFragment StoreEntitySet="Description">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description1" ColumnName="Description" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="dbam17ahnModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Gender1" ColumnName="Gender" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="dbam17ahnModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="dbam17ahnModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="DescId" ColumnName="DescId" />
+                <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+                <ScalarProperty Name="RatingId" ColumnName="RatingId" />
+                <ScalarProperty Name="Ingredients" ColumnName="Ingredients" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+                <ScalarProperty Name="AddedById" ColumnName="AddedById" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductTypes">
+            <EntityTypeMapping TypeName="dbam17ahnModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductType1" ColumnName="ProductType" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="dbam17ahnModel.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Rating1" ColumnName="Rating" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tags">
+            <EntityTypeMapping TypeName="dbam17ahnModel.Tag">
+              <MappingFragment StoreEntitySet="Tags">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tag1" ColumnName="Tag" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagsJunctions">
+            <EntityTypeMapping TypeName="dbam17ahnModel.TagsJunction">
+              <MappingFragment StoreEntitySet="TagsJunction">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserLevels">
+            <EntityTypeMapping TypeName="dbam17ahnModel.UserLevel">
+              <MappingFragment StoreEntitySet="UserLevel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="dbam17ahnModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Address2" ColumnName="Address2" />
+                <ScalarProperty Name="County" ColumnName="County" />
+                <ScalarProperty Name="Postcode" ColumnName="Postcode" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserStatus">
+            <EntityTypeMapping TypeName="dbam17ahnModel.UserStatu">
+              <MappingFragment StoreEntitySet="UserStatus">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+                <ScalarProperty Name="AddedBy" ColumnName="AddedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
